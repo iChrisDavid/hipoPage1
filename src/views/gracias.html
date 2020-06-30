@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                Hipotecas JDO
+            </title>
+        </meta>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        </link>
+
+ <!------ HEAD------------------->
+
+    
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <!--FONT AWESOME-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <!--GOOGLE FONT-->
+  <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
+  <!--animte csss-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <!--custome csss-->
+  <link rel="stylesheet" type="text/css" href="../public/css/main.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+     
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+         <!-------------------FIN ------------------------------->    </head>
+    <body oncontextmenu="return false" onkeydown="return false">
+      <br>
+  
+<!--PARTE DE NAVEGACION ---------->
+
+<header>
+  <div>
+        <div class="menu-toggle" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="overlay"></div>
+        <div class="containerx">
+            <nav>
+                <h1 class="brand"><a href="../../index.html"><img src="../public/img/logo3.jpg"><span></span></a></h1>
+                <ul>
+                    <li><a href="../../index.html"><i class="fas fa-home"></i>Inicio</a></li>
+                    <li><a href="./Nosotros.html"><i class="fas fa-building"></i>Nosotros</a></li>
+                    <li><a href="./gracias.html"><i class="fas fa-envelope"></i>Contactenos</a></li>
+                     <li><a href="./Requisitos.html"><i class="fas fa-calendar-alt"></i>Requisitos</a></li>
+                    <li><a href="./CuotaFija.html"><i class="fas fa-percent"></i>Cuota Fija</a></li>
+  
+                </ul>
+            </nav>
+        </div>
+      </div>
+
+</header>
+                      <script  src="../../index1.js"></script>
+  
+  
+
+
+
+<!-----------------------FIN ---------------------->      
+  <br><br><br>
+        <div>
+        <h4 class="text-primary text-center" data-animation="animated flipInX" >FORMULARIO DE CONTACTO<h4></div>
+        <div>
+       <div id="app">
+        <div class="container">
+
+ 
+  <form class="was-validated">
+    <div class="form-group">
+      <label for="uname">Nombre:</label>
+      <input type="text" class="form-control" id="uname" v-model="from_name" placeholder="Enter username" name="uname" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Por favor rellenar el campo.</div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Email:</label>
+      <input type="text" class="form-control" id="pwd" placeholder="Enter Email" v-model="from_email" name="email" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Por favor rellenar el campo (OPCIONAL).</div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Celular/Telefono:</label>
+      <input type="value" class="form-control" id="phone" placeholder="Telefono" v-model="subject" name="tel" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Por favor rellenar el campo.</div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Mensaje:</label>
+      <textarea type="password" class="form-control" id="pwd" placeholder="Mensaje" name="pswd" v-model="message" required></textarea>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Por favor rellenar el campo.</div>
+    </div>
+    </label>
+    </div>
+    <div class="text-center">
+    <button @click="enviar"  class="btn btn-primary">Enviar</button>
+    <div>
+  </form>
+</div>
+</div>
+</form>
+</div>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js">
+        </script>
+        <script src="https://cdn.emailjs.com/dist/email.min.js" type="text/javascript">
+        </script>
+        <script>
+            (function(){
+                emailjs.init("user_vNMvYAdEimFk7gz7TeJ00");
+             })();
+            const vue = new Vue({
+                el: '#app',
+                data(){
+                    return {
+                        from_name: '',
+                        from_email: '',
+                        message: '',
+                        subject: '',
+                    }
+                },
+                methods: {
+                    enviar(){
+                        let data = {
+                            from_name: this.from_name,
+                            from_email: this.from_email,
+                            message: this.message,
+                            subject: this.subject,
+                        };
+                        
+                        let x = this.from_name
+                        let z = this.from_email
+                        let w = this.subject
+                        let h = this.message
+                        //let g = typeof w;
+                        let y = x.length;
+                        let a = z.length;
+                        let b = w.length;
+                        let c = h.length;
+                        
+                        if(y===0 || b===0 || c===0){alert('No se puede enviar el mensaje con campos vacios')}else{
+                        emailjs.send("default_service","emailhipo", data)
+                        .then(function(response) {
+                            alert(response.text);
+                            if(response.text === 'OK'){
+                                alert('El correo se ha enviado de forma exitosa');
+                            }
+                           console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+                        }, function(err) {
+                            alert('Ocurrió un problema al enviar el correo');
+                           console.log("FAILED. error=", err);
+                        });
+                      }
+                    }
+                }
+            });
+        </script>
+
+   <!--FOOTER ------->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<br><br>
+              <h4 class="text-center text-info">UBICACION DE NUESTRA OFICINA </h4>
+    <style>
+.google-maps {
+position: relative;
+padding-bottom: 45%; // This is the aspect ratio
+height: 0;
+overflow: hidden;
+}
+.google-maps iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100% !important;
+height: 100% !important;
+}
+</style>
+<div class="container">
+<div class="google-maps">
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.5801429875655!2d-76.53556528524189!3d3.451766097487639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a665bb015697%3A0x630d1ea998134a1b!2sCra.+4+%2310-44%2C+Cali%2C+Valle+del+Cauca!5e0!3m2!1ses!2sco!4v1552660385572" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+ 
+
+</div>
+</body>
+
+<!-- Footer -->
+
+<!-- Footer -->
+
+
+
+<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+
+
+
+    <!-- Footer -->
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+          <!-- Content -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Estimado CLiente</h5>
+          <p>Si busca total seguridad y transparencia en crédito hipotecario, con tasas justas, con un tiempo de pago totalmente razonable, que den Garantía real de su inmueble.</p>
+          <h5 class="font-weight-bold text-uppercase mb-4">Hipotecas JDO</h5>
+          <p> Es su agente más confiable por nuestra trayectoria y experiencia en el sector financiero de la ciudad de Cali..</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+          <!-- Links -->
+         
+
+         
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+          <!-- Contact details -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Info</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <p>
+                <i class="fas fa-home mr-3"></i>Cra 4 #10-44 Ofi 514 Edificio Plaza Caicedo, Cali, Colombia</p>
+            </li>
+            <li>
+              <p>
+                <i class="fas fa-envelope mr-3"></i> hipotecasjdo@gmail.com</p>
+            </li>
+            <li>
+              <p>
+                <i class="fas fa-phone mr-3"></i> + 57 896-0575</p>
+            </li>
+            <li>
+              <p>
+                <i class="fas fa-print mr-3"></i> + 57 885-7432</p>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+          <!-- Social buttons -->
+          <h5 class="font-weight-bold text-uppercase mb-4">REDES SOCIALES</h5>
+
+          <!-- Facebook -->
+          <a type="button" class="btn-floating btn-fb" href="https://www.facebook.com/Hipotecas-jdo-1070618093117922/?modal=admin_todo_tour" heigth="50">
+            <i class="fab fa-facebook-f fa-4x" ></i>
+          </a>
+          <!-- Twitter -->
+          <a type="button" class="btn-floating btn-tw" href="https://twitter.com/InversionesJdo">
+            <i class="fab fa-twitter  fa-4x" ></i>
+          </a>
+          <a type="button" class="btn-floating btn-tw" href="https://www.instagram.com/hipotecasjdo/?hl=es-la">
+              <i class="fab fa-instagram fa-4x"> </i>
+            </a>
+          
+         
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="https://www.facebook.com/4e61646965">christian.millan@correounivalle.edu.co</a> 
+      <p>All Rights Reserved.<p>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+</html>
+
+
+
+
+
+<!--     ------------------------->
+
+
+
